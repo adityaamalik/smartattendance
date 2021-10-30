@@ -39,6 +39,21 @@ const routes = [
         exact: true,
         component: "StudentStatistics",
     },
+    {
+        path: ["/teacherclasses"],
+        exact: true,
+        component: "TeacherClasses",
+    },
+    {
+        path: ["/teachercreateclass"],
+        exact: true,
+        component: "TeacherCreateClass",
+    },
+    {
+        path: ["/teacherstatistics"],
+        exact: true,
+        component: "TeacherStatistics",
+    },
 ];
 
 export default routes;

@@ -8,11 +8,12 @@ import {
     MailOutlined,
     LogoutOutlined,
     LineChartOutlined,
+    PlusOutlined,
 } from "@ant-design/icons";
 
 const { Sider } = Layout;
 
-const SideMenu = () => {
+const SideMenu = (props) => {
     return (
         <Sider
             style={{
@@ -21,7 +22,9 @@ const SideMenu = () => {
                 position: "fixed",
             }}
         >
-            <Link to="/studentdashboard">
+            <Link
+                to={props.isTeacher ? "teacherdashboard" : "studentdashboard"}
+            >
                 <S.SideMenu>
                     <HomeOutlined
                         style={{ color: "white", fontSize: "40px" }}
@@ -29,7 +32,7 @@ const SideMenu = () => {
                     <h1 style={{ color: "white", fontSize: "25px" }}>Home</h1>
                 </S.SideMenu>
             </Link>
-            <Link to="/studentclasses">
+            <Link to={props.isTeacher ? "teacherclasses" : "studentclasses"}>
                 <S.SideMenu>
                     <BookOutlined
                         style={{ color: "white", fontSize: "40px" }}
@@ -39,17 +42,38 @@ const SideMenu = () => {
                     </h1>
                 </S.SideMenu>
             </Link>
-            <Link to="/studentinvitations">
+            <Link
+                to={
+                    props.isTeacher
+                        ? "teachercreateclass"
+                        : "studentinvitations"
+                }
+            >
                 <S.SideMenu>
-                    <MailOutlined
-                        style={{ color: "white", fontSize: "40px" }}
-                    />
-                    <h1 style={{ color: "white", fontSize: "25px" }}>
-                        Invitations
-                    </h1>
+                    {props.isTeacher ? (
+                        <>
+                            <PlusOutlined
+                                style={{ color: "white", fontSize: "40px" }}
+                            />
+                            <h1 style={{ color: "white", fontSize: "25px" }}>
+                                New Class
+                            </h1>
+                        </>
+                    ) : (
+                        <>
+                            <MailOutlined
+                                style={{ color: "white", fontSize: "40px" }}
+                            />
+                            <h1 style={{ color: "white", fontSize: "25px" }}>
+                                Invitations
+                            </h1>
+                        </>
+                    )}
                 </S.SideMenu>
             </Link>
-            <Link to="/studentstatistics">
+            <Link
+                to={props.isTeacher ? "teacherstatistics" : "studentstatistics"}
+            >
                 <S.SideMenu>
                     <LineChartOutlined
                         style={{ color: "white", fontSize: "40px" }}
@@ -59,14 +83,17 @@ const SideMenu = () => {
                     </h1>
                 </S.SideMenu>
             </Link>
-            <Link to="/studentlogout">
-                <S.SideMenu>
-                    <LogoutOutlined
-                        style={{ color: "white", fontSize: "40px" }}
-                    />
-                    <h1 style={{ color: "white", fontSize: "25px" }}>Logout</h1>
-                </S.SideMenu>
-            </Link>
+
+            <S.SideMenu
+                onClick={() => {
+                    window.location.href = "/";
+                    localStorage.clear();
+                }}
+                style={{ cursor: "pointer" }}
+            >
+                <LogoutOutlined style={{ color: "white", fontSize: "40px" }} />
+                <h1 style={{ color: "white", fontSize: "25px" }}>Logout</h1>
+            </S.SideMenu>
         </Sider>
     );
 };

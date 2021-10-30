@@ -19,7 +19,7 @@ const StudentDashboard = () => {
                         }}
                     >
                         <img
-                            src="attendance.png"
+                            src="assets/imgs/attendance.png"
                             alt="logo"
                             style={{ height: "300px", marginTop: "50px" }}
                         />

@@ -5,13 +5,13 @@ import SideMenu from "../../components/SideMenu";
 
 const { Content } = Layout;
 
-const StudentClasses = () => {
+const TeacherClasses = () => {
     const [classes] = useState([0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
 
     return (
         <>
             <Layout>
-                <SideMenu />
+                <SideMenu isTeacher={true} />
                 <Layout style={{ backgroundColor: "white" }}>
                     <Content
                         style={{
@@ -36,13 +36,13 @@ const StudentClasses = () => {
                                                 span={12}
                                                 style={{ color: "gray" }}
                                             >
-                                                Taught By
+                                                Total Students
                                             </Col>
                                             <Col
                                                 span={12}
                                                 style={{ textAlign: "right" }}
                                             >
-                                                Mr. Ajay Kumar
+                                                50
                                             </Col>
                                         </Row>
 
@@ -66,36 +66,6 @@ const StudentClasses = () => {
                                                 span={20}
                                                 style={{ color: "gray" }}
                                             >
-                                                Total Attended
-                                            </Col>
-                                            <Col
-                                                span={4}
-                                                style={{ textAlign: "right" }}
-                                            >
-                                                30
-                                            </Col>
-                                        </Row>
-
-                                        <Row style={{ marginTop: "10px" }}>
-                                            <Col
-                                                span={20}
-                                                style={{ color: "gray" }}
-                                            >
-                                                Total Absent
-                                            </Col>
-                                            <Col
-                                                span={4}
-                                                style={{ textAlign: "right" }}
-                                            >
-                                                20
-                                            </Col>
-                                        </Row>
-
-                                        <Row style={{ marginTop: "10px" }}>
-                                            <Col
-                                                span={20}
-                                                style={{ color: "gray" }}
-                                            >
                                                 Physical Attendance %
                                             </Col>
                                             <Col
@@ -111,7 +81,7 @@ const StudentClasses = () => {
                                                 span={20}
                                                 style={{ color: "gray" }}
                                             >
-                                                Your Attentive %
+                                                Class Attentive %
                                             </Col>
                                             <Col
                                                 span={4}
@@ -131,7 +101,9 @@ const StudentClasses = () => {
                                                 <Button>View Details</Button>
                                             </Col>
                                             <Col span={12}>
-                                                <Button danger>Unenrol</Button>
+                                                <Button danger>
+                                                    Delete Class
+                                                </Button>
                                             </Col>
                                         </Row>
                                     </Card>
@@ -145,4 +117,4 @@ const StudentClasses = () => {
     );
 };
 
-export default StudentClasses;
+export default TeacherClasses;
