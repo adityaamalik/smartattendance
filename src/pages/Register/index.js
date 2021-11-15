@@ -17,6 +17,7 @@ const Register = (props) => {
     const [password, setPassword] = useState("");
     const [confirmPassword, setConfirmPassword] = useState("");
     const [rollNo, setRollNo] = useState("");
+    const [year, setYear] = useState("");
 
     const register = () => {
         if (email === "") {
@@ -54,6 +55,14 @@ const Register = (props) => {
                             placeholder="University Roll Number"
                             value={rollNo}
                             onChange={(e) => setRollNo(e.target.value)}
+                        />
+                        <br />
+                        <br />
+                        <S.AuthInput
+                            type="number"
+                            placeholder="Current Year of Study"
+                            value={year}
+                            onChange={(e) => setYear(e.target.value)}
                         />
                         <br />
                         <br />
